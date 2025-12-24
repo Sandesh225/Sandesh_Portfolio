@@ -10,8 +10,8 @@ import { GlobalContainer, sectionSpacing } from "./ui/global-container"
 const PROJECTS = [
   {
     id: 1,
-    title: "AI Email Suite",
-    description: "Smart email composition with AI-powered suggestions",
+    title: "Smart Pokhara",
+    description: "Smart City Platform",
     image: "/ai-email-app.jpg",
     tags: ["Next.js", "Supabase", "OpenAI"],
     color: "from-blue-500 to-cyan-500",
@@ -19,7 +19,7 @@ const PROJECTS = [
   },
   {
     id: 2,
-    title: "Analytics Dashboard",
+    title: "Analytics ",
     description: "Real-time data visualization and insights platform",
     image: "/analytics-dashboard.png",
     tags: ["React", "Chart.js", "PostgreSQL"],
@@ -35,12 +35,12 @@ const PROJECTS = [
     color: "from-green-500 to-emerald-500",
     metrics: "$2M Revenue",
   },
-]
+];
 
 export function ProjectSection() {
-  const [activeProject, setActiveProject] = useState(PROJECTS[0])
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-10%" })
+  const [activeProject, setActiveProject] = useState(PROJECTS[0]);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-10%" });
 
   return (
     <section
@@ -55,17 +55,6 @@ export function ProjectSection() {
       <GlobalContainer>
         {/* Section Header - Left-Rail Aligned */}
         <div className={`${sectionSpacing.headerMargin} space-y-4`}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-secondary/50 border border-border backdrop-blur-sm"
-          >
-            <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs font-mono font-bold tracking-widest text-muted-foreground uppercase">
-              Project_Archive_v2.0
-            </span>
-          </motion.div>
-
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -101,7 +90,9 @@ export function ProjectSection() {
                 <div className="flex items-center justify-center w-12 h-12 rounded-full border border-border group-hover:border-primary transition-colors">
                   <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </div>
-                <span className="text-sm font-mono font-bold uppercase tracking-widest">Explore Full Archive</span>
+                <span className="text-sm font-mono font-bold uppercase tracking-widest">
+                  Explore Full Archive
+                </span>
               </Link>
             </motion.div>
           </div>
@@ -129,15 +120,19 @@ export function ProjectSection() {
 
               {/* Project Info Overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-8 text-white z-10">
-                <h3 className="text-2xl font-bold mb-2">{activeProject.title}</h3>
-                <p className="text-sm text-white/80">{activeProject.description}</p>
+                <h3 className="text-2xl font-bold mb-2">
+                  {activeProject.title}
+                </h3>
+                <p className="text-sm text-white/80">
+                  {activeProject.description}
+                </p>
               </div>
             </div>
           </div>
         </div>
       </GlobalContainer>
     </section>
-  )
+  );
 }
 
 function ProjectListItem({

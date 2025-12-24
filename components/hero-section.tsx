@@ -203,17 +203,16 @@ export function HeroSection() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span className="text-xs font-mono font-bold tracking-widest text-primary uppercase">
-                Full Stack Architect
+                Full Stack Developer
               </span>
             </div>
 
             <h1 className={sectionSpacing.headerTitle}>
-              Engineering Digital <span className="text-primary">Ecosystems</span>
+              I am, <span className="text-primary">Sandesh Subedi</span>
             </h1>
 
             <p className={sectionSpacing.headerSubtitle}>
-              Crafting high-performance web experiences where aesthetic mastery meets technical precision. Next.js,
-              React, and Supabase.
+              I build the map while the team is already driving the car
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -232,7 +231,10 @@ export function HeroSection() {
             transition={{ duration: 0.8 }}
             className="hidden lg:flex items-center justify-center"
           >
-            <HolographicCard smoothMouseX={smoothMouseX} smoothMouseY={smoothMouseY} />
+            <HolographicCard
+              smoothMouseX={smoothMouseX}
+              smoothMouseY={smoothMouseY}
+            />
           </motion.div>
         </div>
       </GlobalContainer>
@@ -245,5 +247,5 @@ export function HeroSection() {
         <ChevronDown className="w-6 h-6" />
       </motion.div>
     </section>
-  )
+  );
 }

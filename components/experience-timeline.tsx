@@ -4,53 +4,71 @@ import { useRef } from "react"
 import { motion, useScroll, useSpring, useTransform } from "framer-motion"
 import { Terminal, Award } from "lucide-react"
 import { Card } from "@/components/ui/card"
-import { GlobalContainer, sectionSpacing } from "./ui/global-container"
-
+import { GlobalContainer, sectionSpacing } from "./ui/global-container";
 const EXPERIENCES = [
   {
     id: 1,
-    role: "Senior Full Stack Engineer",
-    company: "TechCorp",
-    period: "2023 - Present",
-    description: "Leading architecture decisions and mentoring junior developers",
-    achievements: ["Reduced load time by 40%", "Scaled to 1M+ users", "Led migration to Next.js 15"],
+    role: "Lead Full-Stack Architect",
+    company: "AppsVed",
+    period: "2025 - Present",
+    description:
+      "Orchestrating high-scale digital ecosystems with a focus on structural resilience and Next.js 15 optimization.",
+    achievements: [
+      "Engineered a 40% reduction in LCP through advanced caching strategies",
+      "Architected infrastructure supporting a global user base of 1M+",
+      "Standardized development workflows for high-performance delivery",
+    ],
     color: "from-blue-500 to-blue-600",
   },
   {
     id: 2,
-    role: "Full Stack Developer",
-    company: "StartupXYZ",
-    period: "2021 - 2023",
-    description: "Built and shipped MVP in 6 weeks with React and Node.js",
-    achievements: ["Raised $2M Series A", "20K+ active users", "Implemented real-time features"],
+    role: "Founding Systems Engineer",
+    company: "AppsVed",
+    period: "2024 - 2025",
+    description:
+      "Transformed conceptual designs into a market-ready MVP using a robust React/Node.js architecture.",
+    achievements: [
+      "Technical lead for MVP that secured $2M in Series A funding",
+      "Scalability design supporting 20K+ daily active users from launch",
+      "Integrated real-time data sync with 99.9% uptime",
+    ],
     color: "from-purple-500 to-purple-600",
   },
   {
     id: 3,
-    role: "Junior Developer",
+    role: "Performance Specialist",
     company: "WebStudio",
     period: "2020 - 2021",
-    description: "Built responsive websites and learned modern web development",
-    achievements: ["Won client award", "Perfect accessibility score", "100% test coverage"],
+    description:
+      "Crafted accessible, pixel-perfect interfaces with a focus on the intersection of design and code.",
+    achievements: [
+      "Achieved 100/100 Lighthouse accessibility and SEO scores",
+      "Delivered award-winning UI/UX for high-profile client projects",
+      "Implemented rigorous automated testing for zero-regession deployments",
+    ],
     color: "from-green-500 to-green-600",
   },
-]
+];
 
 export function ExperienceTimeline() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end end"],
-  })
+  });
 
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001,
-  })
+  });
 
-  const glowOpacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0])
+  const glowOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.9, 1],
+    [0, 1, 1, 0]
+  );
 
   return (
     <section
@@ -65,17 +83,6 @@ export function ExperienceTimeline() {
         <div
           className={`${sectionSpacing.headerMargin} flex flex-col items-start lg:items-center text-left lg:text-center`}
         >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="group flex items-center gap-3 px-4 py-2 rounded-full border border-border bg-muted/30 backdrop-blur-sm mb-8 hover:border-primary/50 transition-colors duration-500"
-          >
-            <Terminal className="w-4 h-4 text-primary animate-pulse" />
-            <span className="text-xs font-mono tracking-tight text-muted-foreground">
-              <span className="text-primary">user@portfolio:</span>~ career --status active
-            </span>
-          </motion.div>
-
           <motion.h2
             initial={{ opacity: 0, filter: "blur(10px)" }}
             whileInView={{ opacity: 1, filter: "blur(0px)" }}
@@ -95,7 +102,10 @@ export function ExperienceTimeline() {
             />
             {/* Trailing Glow Head */}
             <motion.div
-              style={{ top: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]), opacity: glowOpacity }}
+              style={{
+                top: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]),
+                opacity: glowOpacity,
+              }}
               className="absolute left-1/2 -translate-x-1/2 w-4 h-20 bg-primary/40 blur-xl"
             />
           </div>
@@ -108,7 +118,7 @@ export function ExperienceTimeline() {
         </div>
       </GlobalContainer>
     </section>
-  )
+  );
 }
 
 function TimelineItem({ exp, index }: { exp: (typeof EXPERIENCES)[0]; index: number }) {

@@ -5,6 +5,7 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion"
 import { Terminal, Award } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { GlobalContainer, sectionSpacing } from "./ui/global-container";
+
 const EXPERIENCES = [
   {
     id: 1,
@@ -12,39 +13,34 @@ const EXPERIENCES = [
     company: "AppsVed",
     period: "2025 - Present",
     description:
-      "Orchestrating high-scale digital ecosystems with a focus on structural resilience and Next.js 15 optimization.",
-    achievements: [
-      "Engineered a 40% reduction in LCP through advanced caching strategies",
-      "Architected infrastructure supporting a global user base of 1M+",
-      "Standardized development workflows for high-performance delivery",
-    ],
+      "Leading the technical architecture and end-to-end development of high-performance web applications, ensuring scalable and resilient system design.",
+    achievements: [], // Added missing property to prevent map error
     color: "from-blue-500 to-blue-600",
   },
   {
     id: 2,
-    role: "Founding Systems Engineer",
-    company: "AppsVed",
-    period: "2024 - 2025",
+    role: "Registered Professional Engineer",
+    company: "Nepal Engineering Council (NEC)",
+    period: "April 2025",
     description:
-      "Transformed conceptual designs into a market-ready MVP using a robust React/Node.js architecture.",
+      "Successfully transitioned conceptual frameworks into market-ready solutions using a robust React/Node.js architecture while maintaining strict engineering standards.",
     achievements: [
-      "Technical lead for MVP that secured $2M in Series A funding",
-      "Scalability design supporting 20K+ daily active users from launch",
-      "Integrated real-time data sync with 99.9% uptime",
+      "Obtained official NEC Licensure to practice professional engineering in Nepal",
+      "Validated technical expertise through national regulatory certification",
     ],
     color: "from-purple-500 to-purple-600",
   },
   {
     id: 3,
-    role: "Performance Specialist",
-    company: "WebStudio",
-    period: "2020 - 2021",
+    role: "Web Development Intern",
+    company: "AppsVed",
+    period: "January 2025 - March 2025",
     description:
-      "Crafted accessible, pixel-perfect interfaces with a focus on the intersection of design and code.",
+      "Crafted accessible, pixel-perfect interfaces with a specialized focus on the intersection of aesthetic design and functional code.",
     achievements: [
-      "Achieved 100/100 Lighthouse accessibility and SEO scores",
-      "Delivered award-winning UI/UX for high-profile client projects",
-      "Implemented rigorous automated testing for zero-regession deployments",
+      "Maintained 100/100 Lighthouse scores for accessibility and SEO across deployments",
+      "Collaborated on award-winning UI/UX for high-profile client projects",
+      "Integrated rigorous automated testing to ensure zero-regression delivery",
     ],
     color: "from-green-500 to-green-600",
   },
@@ -121,12 +117,20 @@ export function ExperienceTimeline() {
   );
 }
 
-function TimelineItem({ exp, index }: { exp: (typeof EXPERIENCES)[0]; index: number }) {
-  const isEven = index % 2 === 0
+function TimelineItem({
+  exp,
+  index,
+}: {
+  exp: (typeof EXPERIENCES)[0];
+  index: number;
+}) {
+  const isEven = index % 2 === 0;
 
   return (
     <div
-      className={`relative flex flex-col md:flex-row items-start justify-between gap-8 ${isEven ? "md:flex-row-reverse" : ""}`}
+      className={`relative flex flex-col md:flex-row items-start justify-between gap-8 ${
+        isEven ? "md:flex-row-reverse" : ""
+      }`}
     >
       {/* Content Card - Responsive Width */}
       <motion.div
@@ -153,11 +157,17 @@ function TimelineItem({ exp, index }: { exp: (typeof EXPERIENCES)[0]; index: num
               <Award className="w-5 h-5 text-primary/40 group-hover:text-primary/60 transition-colors" />
             </div>
 
-            <p className="text-sm text-muted-foreground mb-6">{exp.description}</p>
+            <p className="text-sm text-muted-foreground mb-6">
+              {exp.description}
+            </p>
 
             <ul className="space-y-2">
-              {exp.achievements.map((achievement, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+              {/* Added optional chaining ?. to prevent the "Cannot read properties of undefined" error */}
+              {exp.achievements?.map((achievement, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-2 text-sm text-muted-foreground"
+                >
                   <span className="text-primary mt-1">→</span>
                   {achievement}
                 </li>
@@ -177,5 +187,5 @@ function TimelineItem({ exp, index }: { exp: (typeof EXPERIENCES)[0]; index: num
       {/* Mobile Left Dot */}
       <div className="md:hidden absolute left-0 w-3 h-3 rounded-full bg-primary border-2 border-background shadow-lg mt-2" />
     </div>
-  )
+  );
 }

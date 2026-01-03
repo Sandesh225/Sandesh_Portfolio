@@ -20,12 +20,14 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Sandesh Subedi | Full Stack Architect",
   description:
-    "Architecting high-performance digital ecosystems with Next.js and modern engineering principles.",
+    "Engineering high-velocity digital ecosystems through architectural precision and modern system design.",
   keywords: [
-    "Next.js 15",
-    "Supabase",
-    "React Architect",
-    "Full Stack Developer Nepal",
+    "Software Architecture",
+    "Distributed Systems",
+    "Full Stack Engineering",
+    "High-Performance Computing",
+    "Nepal Tech Scene",
+    "Scalable Infrastructure",
   ],
   authors: [{ name: "Sandesh Subedi" }],
   openGraph: {
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sandesh Subedi | Digital Architect",
+    title: "Sandesh Subedi | Systems Architect",
     creator: "@sandeshsubedi",
   },
   metadataBase: new URL("https://sandeshsubedi.dev"),

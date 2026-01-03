@@ -14,19 +14,19 @@ const EXPERIENCES = [
     period: "2025 - Present",
     description:
       "Leading the technical architecture and end-to-end development of high-performance web applications, ensuring scalable and resilient system design.",
-    achievements: [], // Added missing property to prevent map error
+    achievements: [],
     color: "from-blue-500 to-blue-600",
   },
   {
     id: 2,
-    role: "Registered Professional Engineer",
+    role: "Registered Engineer (Software)",
     company: "Nepal Engineering Council (NEC)",
     period: "April 2025",
     description:
-      "Successfully transitioned conceptual frameworks into market-ready solutions using a robust React/Node.js architecture while maintaining strict engineering standards.",
+      "Achieved professional engineering status by successfully passing the licensure examination conducted by the Nepal Engineering Council, validating technical competency in software engineering.",
     achievements: [
-      "Obtained official NEC Licensure to practice professional engineering in Nepal",
-      "Validated technical expertise through national regulatory certification",
+      "Officially registered as a Professional Engineer in Nepal after clearing the NEC council exam.",
+      "Demonstrated compliance with national engineering standards and code of ethics.",
     ],
     color: "from-purple-500 to-purple-600",
   },
@@ -36,11 +36,11 @@ const EXPERIENCES = [
     company: "AppsVed",
     period: "January 2025 - March 2025",
     description:
-      "Crafted accessible, pixel-perfect interfaces with a specialized focus on the intersection of aesthetic design and functional code.",
+      "Contributed to frontend development workflows, focusing on translating design concepts into functional code and connecting applications to backend services.",
     achievements: [
-      "Maintained 100/100 Lighthouse scores for accessibility and SEO across deployments",
-      "Collaborated on award-winning UI/UX for high-profile client projects",
-      "Integrated rigorous automated testing to ensure zero-regression delivery",
+      "Developed responsive UI/UX components based on design mockups.",
+      "Integrated REST APIs to fetch and display dynamic data within the application.",
+      "Assisted in debugging and performing basic usability testing.",
     ],
     color: "from-green-500 to-green-600",
   },

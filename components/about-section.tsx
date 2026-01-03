@@ -9,33 +9,40 @@ import { GlobalContainer, sectionSpacing } from "./ui/global-container"
 const FEATURES = [
   {
     icon: Code2,
-    title: "Clean Architecture",
-    description: "Modular, type-safe systems that prioritize long-term maintainability.",
-    metrics: "SOLID / DRY",
+    title: "System Architecture",
+    description:
+      "Designing scalable, type-safe backends that power complex applications.",
+    metrics: "MICROSERVICES / MONOREPO",
   },
   {
     icon: Zap,
-    title: "Performance First",
-    description: "Obsessed with Core Web Vitals and sub-second response times.",
-    metrics: "99+ LIGHTHOUSE",
+    title: "High Performance",
+    description:
+      "Obsessed with server-side rendering and sub-second database queries.",
+    metrics: "NEXT.JS / REDIS",
   },
   {
     icon: Target,
-    title: "Outcome Driven",
-    description: "Bridge business objectives with technical implementation precision.",
-    metrics: "USER_CENTRIC",
+    title: "Product Focused",
+    description:
+      "Translating business logic into robust, production-ready features.",
+    metrics: "APPSVED / ENTERPRISE",
   },
   {
     icon: ShieldCheck,
-    title: "Security & Scale",
-    description: "Robust auth patterns and cloud-native infrastructure.",
-    metrics: "SUPABASE / AWS",
+    title: "Cloud Native",
+    description:
+      "Secure infrastructure management with automated CI/CD pipelines.",
+    metrics: "AWS / POSTGRESQL",
   },
-]
+];
 
 export function AboutSection() {
   return (
-    <section id="about" className={`${sectionSpacing.container} relative bg-background overflow-hidden`}>
+    <section
+      id="about"
+      className={`${sectionSpacing.container} relative bg-background overflow-hidden`}
+    >
       {/* Background Subtle Gradient */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/5 blur-[120px] rounded-full" />
@@ -52,13 +59,14 @@ export function AboutSection() {
           >
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm">
               <span className="text-xs font-mono font-bold tracking-widest text-primary uppercase">
-                Identity_Verified
+                System_Online
               </span>
             </div>
 
             <div className="space-y-4">
               <h2 className={sectionSpacing.headerTitle}>
-                Core <span className="text-muted-foreground/40 italic">Philosophy</span>
+                Engineering{" "}
+                <span className="text-muted-foreground/40 italic">Mindset</span>
               </h2>
               <div className="h-1 w-20 bg-primary" />
             </div>
@@ -67,23 +75,34 @@ export function AboutSection() {
               <Terminal className="absolute top-4 right-4 w-5 h-5 text-muted-foreground/20 group-hover:text-primary/40 transition-colors" />
 
               <p className="text-xl text-muted-foreground leading-relaxed font-light">
-                I am a <span className="text-foreground font-medium">Full-Stack Architect</span> specializing in
-                performance and aesthetics. I design <span className="text-primary italic">digital ecosystems</span>{" "}
-                that are resilient and beautiful.
+                I am a{" "}
+                <span className="text-foreground font-medium">
+                  Lead Full-Stack Architect
+                </span>{" "}
+                based in Pokhara. I specialize in building high-performance
+                engines using{" "}
+                <span className="text-primary italic">Next.js and AWS</span>,
+                turning complex data into seamless user experiences at AppsVed.
               </p>
 
               <div className="mt-8 pt-8 border-t border-border/50 flex flex-wrap gap-6">
                 <div>
-                  <p className="text-xs font-mono text-muted-foreground uppercase mb-1">Location</p>
-                  <p className="text-sm font-bold">Pokhara, Nepal</p>
+                  <p className="text-xs font-mono text-muted-foreground uppercase mb-1">
+                    Base
+                  </p>
+                  <p className="text-sm font-bold">Pokhara-30, Nepal</p>
                 </div>
                 <div>
-                  <p className="text-xs font-mono text-muted-foreground uppercase mb-1">Focus</p>
-                  <p className="text-sm font-bold">Next.js / Supabase</p>
+                  <p className="text-xs font-mono text-muted-foreground uppercase mb-1">
+                    Stack
+                  </p>
+                  <p className="text-sm font-bold">React / Node / AWS</p>
                 </div>
                 <div>
-                  <p className="text-xs font-mono text-muted-foreground uppercase mb-1">Experience</p>
-                  <p className="text-sm font-bold">Senior Engineer</p>
+                  <p className="text-xs font-mono text-muted-foreground uppercase mb-1">
+                    Current Role
+                  </p>
+                  <p className="text-sm font-bold">Lead Developer</p>
                 </div>
               </div>
             </div>
@@ -92,16 +111,26 @@ export function AboutSection() {
           {/* RIGHT: Feature Matrix */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {FEATURES.map((feature, index) => (
-              <FeatureCard key={feature.title} feature={feature} index={index} />
+              <FeatureCard
+                key={feature.title}
+                feature={feature}
+                index={index}
+              />
             ))}
           </div>
         </div>
       </GlobalContainer>
     </section>
-  )
+  );
 }
 
-function FeatureCard({ feature, index }: { feature: (typeof FEATURES)[0]; index: number }) {
+function FeatureCard({
+  feature,
+  index,
+}: {
+  feature: (typeof FEATURES)[0];
+  index: number;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -121,17 +150,21 @@ function FeatureCard({ feature, index }: { feature: (typeof FEATURES)[0]; index:
             <h3 className="text-2xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors">
               {feature.title}
             </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {feature.description}
+            </p>
           </div>
 
           <div className="mt-auto pt-6 flex items-center justify-between border-t border-border/50">
             <span className="text-xs font-mono font-bold tracking-widest text-muted-foreground/60 uppercase group-hover:text-primary/60 transition-colors">
               Metric
             </span>
-            <span className="text-xs font-mono font-bold text-foreground">{feature.metrics}</span>
+            <span className="text-xs font-mono font-bold text-foreground">
+              {feature.metrics}
+            </span>
           </div>
         </div>
       </Card>
     </motion.div>
-  )
+  );
 }

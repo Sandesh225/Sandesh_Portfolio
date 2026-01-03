@@ -23,6 +23,20 @@ export default function Navigation() {
     setIsScrolled(latest > 20);
   });
 
+  // --- ADDED THIS FUNCTION ---
+  const handleScroll = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      const offsetTop = target.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+  // ---------------------------
+
   return (
     <motion.header
       initial={{ y: -100, opacity: 0 }}
@@ -37,17 +51,18 @@ export default function Navigation() {
     >
       <nav className="container-grid py-3 flex items-center justify-between">
         {/* Brand Section with Avatar */}
-        <div className="flex items-center gap-3 group cursor-pointer">
+        <div
+          className="flex items-center gap-3 group cursor-pointer"
+          onClick={(e) => handleScroll(e, "#about")} // Optional: Make logo scroll to top
+        >
           <motion.div whileHover={{ scale: 1.05 }} className="relative">
             <Avatar className="h-10 w-10 border border-primary/20 ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all">
-              {/* Replace with your actual image path */}
               <AvatarImage src="/logo.png" alt="Sandesh Subedi" />
               <AvatarFallback className="bg-primary text-primary-foreground font-bold">
                 SS
               </AvatarFallback>
             </Avatar>
 
-            {/* Online Status Indicator */}
             <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-500 ring-2 ring-background" />
           </motion.div>
 
@@ -71,7 +86,9 @@ export default function Navigation() {
                 <Button
                   asChild
                   variant="ghost"
-                  className="relative text-sm font-medium hover:text-primary transition-colors group"
+                  className="relative text-sm font-medium hover:text-primary transition-colors group cursor-pointer"
+                  // You can also add the click handler here for smoother scrolling on nav links
+                  onClick={(e) => handleScroll(e, link.href)}
                 >
                   <a href={link.href}>
                     {link.label}
@@ -86,7 +103,10 @@ export default function Navigation() {
         {/* Action Button */}
         <MagneticWrapper>
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 text-sm font-semibold px-6 shadow-lg shadow-primary/10 rounded-full">
+            <Button
+              onClick={(e) => handleScroll(e, "#contact")}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 text-sm font-semibold px-6 shadow-lg shadow-primary/10 rounded-full"
+            >
               Let's Talk
             </Button>
           </motion.div>
